@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  Dimensions,
   StyleSheet,
   Text,
   TouchableHighlight,
@@ -8,18 +9,27 @@ import {
   Image,
   SafeAreaView,
   Platform,
-  Button
+  Button,
+  StatusBar
 } from 'react-native';
 
 export default function App() {
+  console.log(Dimensions.get('screen'));
 
   const handlePress = () => console.log("Text Pressed");
 
   return (
-    <SafeAreaView style={styles.container}>
+    <SafeAreaView style={containerStyle}>
+      <View style={{
+          backgroundColor: 'dodgerblue',
+          width: '50%',
+          height: 70
+        }}>
+      </View>
       <Text style={styles.container_text} numberOfLines={1} onPress={handlePress}>Most components can be customized when they are created</Text>
       <TouchableHighlight onPress={() => console.log("Image tapped")}>
         {/* <View style={{ width: 200, height: 70, backgroundColor: "blue" }}></View> */}
+        {/* 画像の読み込み */}
         {/* <Image source={require('./assets/icon.png')}/> */}
         <Image
           fadeDuration={1000}
@@ -30,9 +40,8 @@ export default function App() {
           }} />
       </TouchableHighlight>
       <Button
-        // Androidと
         style={styles.container_button}
-        color="orange"
+        color="black"
         title="Click Me"
         onPress={() =>
           // それぞれのボタンで制御
@@ -47,6 +56,13 @@ export default function App() {
       />
     </SafeAreaView>
   );
+}
+
+const containerStyle = {
+  flex: 1,
+  backgroundColor: 'orange',
+
+  paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0
 }
 
 const styles = StyleSheet.create({
