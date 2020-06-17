@@ -16,7 +16,7 @@ import {
 
 export default function App() {
   // console.log(useDimensions());
-  const {landscape} = useDeviceOrientation();
+  const { landscape } = useDeviceOrientation();
   // console.log(Dimensions.get('screen'));
 
   const handlePress = () => console.log("Text Pressed");
@@ -24,30 +24,39 @@ export default function App() {
   return (
     <SafeAreaView style={containerStyle}>
       <View style={{
-          backgroundColor: 'dodgerblue',
-          width: '100%',
-          // 自動で計算する
-          height: landscape ? "100%" : "30%"
-        }}>
-          <View
+        backgroundColor: '#fff',
+        width: '100%',
+        // 自動で計算する
+        height: landscape ? "100%" : "30%",
+        flex: 1,
+        // flexDirection: "row-reverse",
+        // columnをした寄せにする
+        flexDirection: "column-reverse",
+        // rowを右に寄せる
+        // flexDirection: "row-reverse"
+      }}>
+        <View
           style={{
             backgroundColor: "gold",
-            flex: 1
+            width: 100,
+            height: 100
           }}
-          />
-          <View
+        />
+        <View
           style={{
             backgroundColor: "tomato",
-            flex: 1
+            width: 100,
+            height: 100
           }}
-          />
-      </View>
-      <View
+        />
+        <View
           style={{
-            backgroundColor: "dodgerblue",
-            flex: 2
+            backgroundColor: "red",
+            width: 100,
+            height: 100
           }}
-          >
+        />
+      </View>
       <Text style={styles.container_text} numberOfLines={1} onPress={handlePress}>Most components can be customized when they are created</Text>
       <TouchableHighlight onPress={() => console.log("Image tapped")}>
         {/* <View style={{ width: 200, height: 70, backgroundColor: "blue" }}></View> */}
@@ -61,21 +70,20 @@ export default function App() {
             uri: "https://picsum.photos/200/300"
           }} />
       </TouchableHighlight>
-      </View>
       <Button
         style={styles.container_button}
         color="#3dc0b1"
         title="Click Me"
         onPress={() =>
           // それぞれのボタンで制御
-        // Alert.alert('My title', 'My message', [
-        //   {text: "Yes", onPress: () => console.log("yes")},
-        //   {text: "No", onPress: () => console.log("no")}
-        // ])
+          // Alert.alert('My title', 'My message', [
+          //   {text: "Yes", onPress: () => console.log("yes")},
+          //   {text: "No", onPress: () => console.log("no")}
+          // ])
 
-        // Androidは今のところ対応していない
-        Alert.prompt("My title", "Me message", text => console.log(text))
-      }
+          // Androidは今のところ対応していない
+          Alert.prompt("My title", "Me message", text => console.log(text))
+        }
       />
     </SafeAreaView>
   );
