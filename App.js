@@ -29,7 +29,25 @@ export default function App() {
           // 自動で計算する
           height: landscape ? "100%" : "30%"
         }}>
+          <View
+          style={{
+            backgroundColor: "gold",
+            flex: 1
+          }}
+          />
+          <View
+          style={{
+            backgroundColor: "tomato",
+            flex: 1
+          }}
+          />
       </View>
+      <View
+          style={{
+            backgroundColor: "dodgerblue",
+            flex: 2
+          }}
+          >
       <Text style={styles.container_text} numberOfLines={1} onPress={handlePress}>Most components can be customized when they are created</Text>
       <TouchableHighlight onPress={() => console.log("Image tapped")}>
         {/* <View style={{ width: 200, height: 70, backgroundColor: "blue" }}></View> */}
@@ -43,9 +61,10 @@ export default function App() {
             uri: "https://picsum.photos/200/300"
           }} />
       </TouchableHighlight>
+      </View>
       <Button
         style={styles.container_button}
-        color="black"
+        color="#3dc0b1"
         title="Click Me"
         onPress={() =>
           // それぞれのボタンで制御
@@ -64,14 +83,13 @@ export default function App() {
 
 const containerStyle = {
   flex: 1,
-  backgroundColor: 'orange',
-
+  backgroundColor: '#fff',
   paddingTop: Platform.OS === 'android' ? StatusBar.currentHeight : 0
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    flex: 0.5,
     backgroundColor: '#fff',
     justifyContent: "center",
     alignItems: "center",
