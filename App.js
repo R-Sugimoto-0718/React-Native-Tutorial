@@ -28,14 +28,15 @@ export default function App() {
         <View style={{
           backgroundColor: '#fff',
           width: '100%',
+          marginTop: 80,
           // 自動で計算する
           height: landscape ? "100%" : "30%",
           flexDirection: "row",
           justifyContent: "center",
           alignItems: "center",
           // alignContentはflextWrapと一緒に使う
-          alignContent: "center",
-          flexWrap: "wrap"
+          // alignContent: "center",
+          // flexWrap: "wrap"
           // columnを下寄せにする
           // flexDirection: "column-reverse",
           // rowを右に寄せる
@@ -44,19 +45,18 @@ export default function App() {
           <View
             style={{
               backgroundColor: "gold",
-              flexBasis: 400,
-              // flexShrink: 1,
-              flex: -1,
-              // width: 100,
+              width: 100,
               height: 100,
-              // alignSelf: "flex-end"
             }}
           />
           <View
             style={{
               backgroundColor: "tomato",
               width: 100,
-              height: 100
+              height: 100,
+              top: 20,
+              left: 20,
+              position: "absolute"
             }}
           />
           <View
