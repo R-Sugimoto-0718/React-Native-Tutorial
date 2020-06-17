@@ -4,9 +4,11 @@ import {
   Text,
   TouchableHighlight,
   View,
+  Alert,
   Image,
   SafeAreaView,
-  Platform
+  Platform,
+  Button
 } from 'react-native';
 
 export default function App() {
@@ -22,11 +24,27 @@ export default function App() {
         <Image
           fadeDuration={1000}
           source={{
-          width: 200,
-          height: 300,
-          uri: "https://picsum.photos/200/300"
-          }}/>
+            width: 200,
+            height: 300,
+            uri: "https://picsum.photos/200/300"
+          }} />
       </TouchableHighlight>
+      <Button
+        // Androidと
+        style={styles.container_button}
+        color="orange"
+        title="Click Me"
+        onPress={() =>
+          // それぞれのボタンで制御
+        // Alert.alert('My title', 'My message', [
+        //   {text: "Yes", onPress: () => console.log("yes")},
+        //   {text: "No", onPress: () => console.log("no")}
+        // ])
+
+        // Androidは今のところ対応していない
+        Alert.prompt("My title", "Me message", text => console.log(text))
+      }
+      />
     </SafeAreaView>
   );
 }
@@ -43,5 +61,8 @@ const styles = StyleSheet.create({
     textAlign: "center",
     padding: 8,
     fontSize: 25
+  },
+  container_button: {
+    marginTop: Platform.OS === 'android' ? 12 : 0
   }
 });
