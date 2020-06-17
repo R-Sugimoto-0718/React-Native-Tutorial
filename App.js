@@ -1,4 +1,5 @@
 import React from 'react';
+import { useDimensions, useDeviceOrientation } from '@react-native-community/hooks';
 import {
   Dimensions,
   StyleSheet,
@@ -14,7 +15,9 @@ import {
 } from 'react-native';
 
 export default function App() {
-  console.log(Dimensions.get('screen'));
+  // console.log(useDimensions());
+  const {landscape} = useDeviceOrientation();
+  // console.log(Dimensions.get('screen'));
 
   const handlePress = () => console.log("Text Pressed");
 
@@ -22,8 +25,9 @@ export default function App() {
     <SafeAreaView style={containerStyle}>
       <View style={{
           backgroundColor: 'dodgerblue',
-          width: '50%',
-          height: 70
+          width: '100%',
+          // 自動で計算する
+          height: landscape ? "100%" : "30%"
         }}>
       </View>
       <Text style={styles.container_text} numberOfLines={1} onPress={handlePress}>Most components can be customized when they are created</Text>
