@@ -29,9 +29,11 @@ export default function App() {
         // 自動で計算する
         height: landscape ? "100%" : "30%",
         flex: 1,
-        // flexDirection: "row-reverse",
-        // columnをした寄せにする
-        flexDirection: "column-reverse",
+        flexDirection: "row",
+        justifyContent: "center",
+        alignItems: "center"
+        // columnを下寄せにする
+        // flexDirection: "column-reverse",
         // rowを右に寄せる
         // flexDirection: "row-reverse"
       }}>
@@ -39,14 +41,15 @@ export default function App() {
           style={{
             backgroundColor: "gold",
             width: 100,
-            height: 100
+            height: 300,
+            alignSelf: "flex-end"
           }}
         />
         <View
           style={{
             backgroundColor: "tomato",
             width: 100,
-            height: 100
+            height: 200
           }}
         />
         <View
